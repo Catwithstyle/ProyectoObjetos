@@ -1,6 +1,9 @@
 package es.makigas.ModeracionAula.model;
 
-public enum TipoDocente {
+import javax.persistence.*;
 
-    CONTRATADO,SUSTITUTO
+@Table(name = "TipoDocente")
+public enum TipoDocente {
+    CONTRATADO,
+    SUSTITUTO
 }
