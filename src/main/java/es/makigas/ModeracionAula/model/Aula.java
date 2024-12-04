@@ -12,7 +12,7 @@ import javax.validation.constraints.Min;
 @Getter
 @Setter
 @Table(name = "Aula")
-@View(name = "simple", members = "nombre, edificio, capacidad")
+@View(name = "simple", members = "nombre, edificio")
 @Tab(properties = "nombre, edificio.nombreEdificio, capacidad")
 public class Aula extends Identifiable {
 
