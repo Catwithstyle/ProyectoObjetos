@@ -33,6 +33,7 @@ public class Clase extends Identifiable {
     private Aula aula;
 
     @ManyToOne(optional = false)
+    @DescriptionsList(descriptionProperties = "nombreCompleto")
     @DescriptionsList
     private Profesor profesor;
 
@@ -40,11 +41,6 @@ public class Clase extends Identifiable {
     @Required
     private Turno turno;
 
-    @Stereotype("DATETIME")
-    private LocalTime horarioInicio;
-
-    @Stereotype("DATETIME")
-    private LocalTime horarioFin;
 
     @Min(1)
     @Required

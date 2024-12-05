@@ -11,12 +11,11 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "Edificio")
-@View(name = "simple", members = "nombreEdificio, capacidadTotal")
-@Tab(properties = "nombreEdificio, capacidadTotal")
+@View(name = "simple", members = "nombreEdificio")
+@Tab(properties = "nombreEdificio") // Configuración de las columnas en la tabla
 public class Edificio extends Identifiable {
 
-    @Required
-    private String nombreEdificio;
+    @Required // Campo obligatorio
+    private String nombreEdificio; // Propiedad principal del edificio
 
-    private Integer capacidadTotal;
 }

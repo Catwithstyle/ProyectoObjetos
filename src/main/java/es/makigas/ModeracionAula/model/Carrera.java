@@ -12,13 +12,13 @@ import javax.persistence.*;
 @Setter
 @Table(name = "Carrera")
 @View(name = "simple", members = "nombre, facultad")
-@Tab(properties = "nombre, facultad.facultad")
+@Tab(properties = "nombre, facultad.nombre") // Usamos 'facultad.nombre' para mostrar en la tabla
 public class Carrera extends Identifiable {
 
     @Required
-    private String nombre;
+    private String nombre; // Nombre de la carrera
 
     @ManyToOne(optional = false)
-    @DescriptionsList
-    private Facultad facultad;
+    @DescriptionsList(descriptionProperties = "nombre") // Especificamos que use 'nombre' de Facultad
+    private Facultad facultad; // Relación con Facultad
 }

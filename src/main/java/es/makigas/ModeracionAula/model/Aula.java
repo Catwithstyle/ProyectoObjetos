@@ -12,17 +12,17 @@ import javax.validation.constraints.Min;
 @Getter
 @Setter
 @Table(name = "Aula")
-@View(name = "simple", members = "nombre, edificio")
-@Tab(properties = "nombre, edificio.nombreEdificio, capacidad")
+@View(name = "simple", members = "nombre, edificio") // Vista básica con el nombre y el edificio
+@Tab(properties = "nombre, edificio.nombreEdificio, capacidad") // Configuración para mostrar columnas en la tabla
 public class Aula extends Identifiable {
 
-    @Required
-    private String nombre;
+    @Required // Campo obligatorio
+    private String nombre; // Nombre del aula
 
-    @ManyToOne(optional = false)
-    @DescriptionsList
+    @ManyToOne(optional = false) // Relación con Edificio, obligatorio
+    @DescriptionsList(descriptionProperties = "nombreEdificio") // Usa 'nombreEdificio' como descripción
     private Edificio edificio;
 
-    @Min(1)
-    private Integer capacidad;
+    @Min(1) // Valida que la capacidad mínima sea 1
+    private Integer capacidad; // Capacidad del aula
 }

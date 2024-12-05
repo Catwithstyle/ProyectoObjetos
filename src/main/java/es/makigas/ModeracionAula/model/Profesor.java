@@ -30,6 +30,7 @@ public class Profesor extends Identifiable {
 	private TipoDocente tipoDocente;
 
 	@ReadOnly
+	@DescriptionsList(descriptionProperties = "nombreCompleto")
 	public String getNombreCompleto() {
 		return nombre1 + " " + (nombre2 != null ? nombre2 + " " : "") + apellido + " " + apellido2;
 	}
