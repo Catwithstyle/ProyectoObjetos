@@ -1,8 +1,5 @@
 package es.makigas.ModeracionAula.model;
 
-import javax.persistence.*;
-
-@Table(name = "Turno")
 public enum Turno {
     MAÑANA("Mañana"),
     TARDE("Tarde"),

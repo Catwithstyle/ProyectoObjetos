@@ -1,17 +1,19 @@
 package es.makigas.ModeracionAula.model;
-
+import org.openxava.annotations.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.openxava.annotations.*;
 import org.openxava.model.Identifiable;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
+
+
+
+
+import java.time.LocalTime;  // Cambiado de java.util.Date a LocalTime
 
 @Entity
 @Getter
 @Setter
-@Table(name = "Marcado") // Define el nombre de la tabla en la base de datos.
+@Table(name = "Marcado")
 public class Marcado extends Identifiable {
 
     @ManyToOne(optional = false)
@@ -19,25 +21,23 @@ public class Marcado extends Identifiable {
     private Aula aula;
 
     @ManyToOne(optional = false)
-    @DescriptionsList
+    @DescriptionsList(descriptionProperties = "nombreCompleto")
     private Profesor profesor;
 
     @Column(nullable = false)
     private boolean asistencia;
 
     @ManyToOne(optional = false)
-    @DescriptionsList
+    @DescriptionsList(descriptionProperties = "nombreClase")
     private Clase clase;
 
     @Column(nullable = false)
-    @Stereotype("DATETIME") // Define que este campo será de tipo fecha y hora en OpenXava.
-    private LocalDateTime horaInicio;
+    private LocalTime horaInicio;  // Tipo cambiado a LocalTime
 
     @Column(nullable = true)
-    @Stereotype("DATETIME")
-    private LocalDateTime horaFinal;
+    private LocalTime horaFinal;   // Tipo cambiado a LocalTime
 
-    @Enumerated(EnumType.STRING) // Almacena el valor del enum Turno como texto en la base de datos.
-    @Required // Indica que este campo es obligatorio.
+    @Enumerated(EnumType.STRING)
+    @Required
     private Turno turno;
 }

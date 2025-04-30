@@ -11,10 +11,16 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "Facultad")
-@View(name = "simple", members = "nombre") // Actualizamos para que se muestre 'nombre'
-@Tab(properties = "nombre") // Usamos 'nombre' para mostrar en la tabla
+@View(name = "simple", members = "nombre")
+@Tab(properties = "nombre")
 public class Facultad extends Identifiable {
 
     @Required
-    private String nombre; // Cambiado de 'facultad' a 'nombre'
+    @Column(length = 100)
+    private String nombre;
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

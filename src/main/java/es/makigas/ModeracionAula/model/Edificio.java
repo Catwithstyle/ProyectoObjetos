@@ -12,10 +12,15 @@ import javax.persistence.*;
 @Setter
 @Table(name = "Edificio")
 @View(name = "simple", members = "nombreEdificio")
-@Tab(properties = "nombreEdificio") // Configuración de las columnas en la tabla
+@Tab(properties = "nombreEdificio")
 public class Edificio extends Identifiable {
 
-    @Required // Campo obligatorio
-    private String nombreEdificio; // Propiedad principal del edificio
+    @Required
+    @Column(length = 100)
+    private String nombreEdificio;
 
+    @Override
+    public String toString() {
+        return nombreEdificio;
+    }
 }
